@@ -21,7 +21,7 @@ load('phenotypeComplete.RData')
 # Rede media dos controles (dxGroup == 1)
 # se voce quisesse poderia gerar para apenas uma pessoa, para apenas os controles, etc.
 # A rede media está sendo corrigida por fdr (matFDR) após transformação para pvalor (z2p)
-pos = which(phenotype$DX_GROUP == 2 & phenotype$FIQ > 0  & phenotype$VIQ > 0 & phenotypePIQ > 0)
+pos = which(phenotype$DX_GROUP == 2 & phenotype$FIQ > 0  & phenotype$VIQ > 0 & phenotype$PIQ > 0)
 
 #Calcula  média e transforma em p-valor
 media = matFDR(z2p(colMeans(dataset[pos, , ])))
