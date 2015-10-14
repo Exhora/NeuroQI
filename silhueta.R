@@ -16,6 +16,7 @@ for(i in 1:length(pos)){
 
 }
 
+#Percorre o vetor de labels e separa em 5 vetores contendo os índices das ROIs daquele cluster
 labels1 = NULL
 labels2 = NULL
 labels3 = NULL
@@ -26,37 +27,44 @@ l2 = 1;
 l3 = 1;
 l4 = 1;
 l5 = 1;
-#soh os que sao do 1
 for(i in 1:316){
+	#ROIs do cluster 1
 	if(labels[i] == 1){
 		labels1[l1] = i;
 		l1 = l1+1;
 	}
+	#ROIs do cluster 2
 	else if(labels[i] == 2){
 		labels2[l2] = i;
 		l2 = l2+1;
 	}
+	#ROIs do cluster 3
 	else if (labels[i] == 3){
 		labels3[l3] = i;
 		l3 = l3+1;
-	}else if (labels[i] == 4){
+	}
+	#ROIs do cluster 4
+	else if (labels[i] == 4){
 		labels4[l4] = i;
 		l4 = l4+1;
-	}else if (labels[i] == 5){
+	}
+	#ROIs do cluster 5
+	else if (labels[i] == 5){
 		labels5[l5] = i;
 		l5 = l5+1;
 	}
 }
 
+#separa apenas os valores de correlacao de Spearman do cluster 1
 cluster1 = array(dim = c(dim(dados)[1],length(labels1), length(labels1)))
-#copiar cada cluster separadamente
-for(i in 1:dim(dados)[1]){
-	for(j in 1:length(labels1)){
+for(i in 1:dim(dados)[1]){ #para cada individuo
+	for(j in 1:length(labels1)){ #para cada ROI do cluster 1
 		for(k in 1:length(labels1)){
 			cluster1[i,j, k] = dados[i, labels1[j], labels1[k]];
 		}
 	}
 }
+
 cluster2 = array(dim = c(dim(dados)[1],length(labels2), length(labels2)))
 #copiar cada cluster separadamente
 for(i in 1:dim(dados)[1]){
@@ -66,6 +74,7 @@ for(i in 1:dim(dados)[1]){
 		}
 	}
 }
+
 cluster3 = array(dim = c(dim(dados)[1],length(labels3), length(labels3)))
 #copiar cada cluster separadamente
 for(i in 1:dim(dados)[1]){
@@ -75,6 +84,7 @@ for(i in 1:dim(dados)[1]){
 		}
 	}
 }
+
 cluster4 = array(dim = c(dim(dados)[1],length(labels4), length(labels4)))
 #copiar cada cluster separadamente
 for(i in 1:dim(dados)[1]){
@@ -84,6 +94,7 @@ for(i in 1:dim(dados)[1]){
 		}
 	}
 }
+
 cluster5 = array(dim = c(dim(dados)[1],length(labels5), length(labels5)))
 #copiar cada cluster separadamente
 for(i in 1:dim(dados)[1]){
