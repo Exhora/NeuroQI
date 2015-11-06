@@ -19,7 +19,7 @@ maxClusters = 16
 for (slopeP in minSlopeP:maxSlopeP) {
   sils = list()
   for (numClusters in minClusters:maxClusters) {
-    print(paste(c("Running to ", numClusters, " clusters"), sep="", collapse=""))
+    print(paste(c("Running to ", numClusters, " clusters and slope p=", slopeP), sep="", collapse=""))
     source("labels.R")
     source("silhueta.R")
   }
