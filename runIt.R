@@ -12,8 +12,8 @@ source('src/sc.R')
 source('src/matFDR.R')
 
 numClusters = 5
+
   source("labels.R")
-  #source("silhueta.R")
   source("clusters.R")
   source("binariza.R")
   source("grafo.R")
