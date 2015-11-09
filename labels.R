@@ -12,3 +12,12 @@ labels = specClust(1 - media, numClusters)
 
 fileName = paste(c("labelsComScrubbing_", numClusters, "clusters.RData"), sep="", collapse="")
 save(labels, file = fileName)
+
+dados = array(dim=c(length(pos), 316, 316))
+
+# passa todos os individuos para p-valor e corrige por FDR
+for (i in 1:length(pos)) {
+	dados[i,,] = matFDR(z2p(dataset[pos[i],,]))
+}
+
+
